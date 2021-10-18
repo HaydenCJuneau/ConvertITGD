@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Graphics/ProgressOver.png" type="Texture" id=1]
+[ext_resource path="res://Graphics/ProgressUnder.png" type="Texture" id=2]
+[ext_resource path="res://Graphics/ProgressFill.png" type="Texture" id=3]
+[ext_resource path="res://Fonts/montserrat/Montserrat-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Scripts/GUI/ImageGUIComponents/FileProgressPopup.cs" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 12
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 4 )
+
+[node name="FileProgressPopup" type="WindowDialog"]
+visible = true
+margin_right = 450.0
+margin_bottom = 130.0
+window_title = "Processing Files"
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="TextureProgress" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -220.0
+margin_top = -58.0
+margin_right = 220.0
+margin_bottom = -26.0
+value = 50.0
+texture_under = ExtResource( 2 )
+texture_over = ExtResource( 1 )
+texture_progress = ExtResource( 3 )
+tint_progress = Color( 0.266667, 0.788235, 0.0784314, 1 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PercentageLabel" type="Label" parent="ProgressBar"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -243.0
+margin_right = -192.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 1 )
+text = "50%"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProcessingLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -220.0
+margin_top = 48.0
+margin_right = 220.0
+margin_bottom = 71.0
+custom_fonts/font = SubResource( 2 )
+text = "Processing: Example.file"
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

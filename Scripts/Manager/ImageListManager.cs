@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.IO;
 
-using ConvertIt.Library;
-
-namespace ConvertIt.Manager
+namespace ConvertIt.Library
 {
     /// <summary>
     /// List manager is a helper class that manages the lists and data generated and needed by the main GUI when running
@@ -86,6 +83,19 @@ namespace ConvertIt.Manager
                 textureList.Add(texture);
             }
             return textureList;
+        }
+
+        public List<string> GetImageTitles()
+        {
+            var titleList = new List<string>();
+
+            foreach(var path in ImagePaths)
+            {
+                var title = path.Substring(path.LastIndexOf(@"\") + 1);
+                titleList.Add(title);
+            }
+
+            return titleList;
         }
         
         // - - - Search methods - - - 
